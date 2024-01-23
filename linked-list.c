@@ -38,6 +38,17 @@ void create(){// function to create a node
         scanf("%d", &choice);
     }
 }
+//this fucntion's approach is going until it hits null and then tracing back and comparing the values
+int max(struct node *p){// recursive function to check max in a linked list
+    int m=0;//variable to store max value
+    if(p==0)//base case - when pointer's next is null
+        return 0;  
+    m=max(p->next);//storing the value returned after popping the highest stack
+    if(m>p->data)//comparing the value of previous node's data and current node data 
+        return m;
+    else return p->data;
+}
+
 void main(){
     create();
     printf("\ndisplaying elements");
